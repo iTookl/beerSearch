@@ -1,5 +1,5 @@
 let request = new XMLHttpRequest();
-const countent = document.getElementById('countent');
+const countent = document.getElementById(/*'countent'*/ 'marginForCountent');
 
 
 request.open('GET', `https://api.punkapi.com/v2/beers/`, false);
@@ -19,35 +19,29 @@ function data() {
 
 
 	let json = JSON.parse(request.response);
-	let num = (Math.round(json.length / 4));
+	console.log(json);
 
-	/*for (let i = 0; i < json.length; i++) {
-		const createRow = document.createElement('div');
-		createRow.className = 'row';
-		countent.appendChild(createRow);
-	}*/
+	let fragment = document.createDocumentFragment();
+	for (let i = 0; i < json.length; i++) {
+		let div = document.createElement('div');
+		let br = document.createElement('br');
+		let title = document.createElement('h2');
+		let description = document.createElement('p');
+		let img = document.createElement('img');
 
-	for (let x = 0; x < num; x++) {
-		const createRow = document.createElement('div');
-		createRow.className = 'row';
-		countent.appendChild(createRow);
 
-		for (let i = 0; i < 4; i++) {
-			const createBlock = document.createElement('div');
-			createRow.appendChild(createBlock);
-			createBlock.className = 'countentBlock';
-		}
+		div.className = 'countentBlock';
+		img.src = json[i]['image_url'];
+		img.className = 'img';
 
-		let check = document.querySelector('.countentBlock');
-		console.log();
+		title.textContent = json[i]['name'];
+		description.textContent = json[i]['description'];
+		
+		div.appendChild(title);
+		div.appendChild(description);
+		div.appendChild(img);
+		fragment.appendChild(div);	
 	}
-
-	/*for (let i = 0; i < json.length; i++) {
-		const createTitle = document.createElement('h2');
-		createTitle.innerHTML = 'title';
-	}
-
-	console.log(json);*/
-	}
-
+	countent.appendChild(fragment);
+}
 data();

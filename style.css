@@ -33,22 +33,29 @@ body {
 /* COUNTENT START */
 #countent {
 	display: flex;
-	flex-direction: column;
+	text-align: center;
+	justify-content: center;
 	width: width: calc(100% - 140px);
 	min-height: 490px; 
 	background-color: grey;
 	margin-left: 70px;
 	margin-right: 70px;
 }
-.row {
+#marginForCountent {
 	display: flex;
-	flex-direction: row;
-	width: 100%;
+	flex-wrap: wrap; 
+	border: 1px solid red;
+/* 	margin-left: 40px; */
 }
 .countentBlock {
 	border: 1px solid black;
-	width: calc(100% / 4);
+	width: 33%;
 	min-height: 150px;
-	margin: 5px;
+/* 	margin: 1%; */
+}
+.img {
+
+	width: 50px;
+	height: 150px;
 }
 /* COUNTENT END */
