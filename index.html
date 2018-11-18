@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
 	<title>beerSearch</title>
 </head>
 <body>
@@ -10,15 +11,20 @@
 		<div class="check" id="check"></div>
 
 		<div id="header">
-			<h2>beerSearch</h2>
+			<div>
+				<h1 id="title">beerSearch</h1>
+			</div>
 			<div>
 				<a href="">HOME</a>
 				<a href="">FAVORITES</a>
 			</div>
 		</div>
+
 		<div id="search">
-			<input type="text">
-			<button>search</button>
+			<input type="text" id="searchText" value="">
+			<form action="found/found.html" method="post">
+				<input id="btnSearch" type="submit" value="Search"></input>
+			</form>
 		</div>
 
 		<div id="countent">
@@ -27,5 +33,6 @@
 
 	</div>
 	<script src="script.js"></script>
+	<script src="selectedBeer.js"></script>
 </body>
 </html>
