@@ -1,45 +1,19 @@
-const wrap = $.getElementById('marginForCountent');
-const countentBlock = $.querySelector('.forFlex');
+(function selectBeer() {
 
-
-/*EVENT HERE*/
-wrap.addEventListener('click', click);
-function click(event) {
-	/*In this function we check which block has been clicked*/
-	let json = JSON.parse(request.response);
-	for (let i = 0; i < json.length; i++) {
-		if (event.target.id === json[i]['name']) {
-			console.log(json[i]['name']);
-			wrap.innerHTML = '';
-			/*variebles(json[i]);*/
-			let beer = createBeer(json[i]);
-			wrap.appendChild(beer);
-		}
+	const $ = document;
+	const content = $.getElementById('content');
+	const modal = $.getElementById('openBeer');
+	/*EVENT HERE*/
+	content.addEventListener('click', click);
+	function click(event) {
+		event.stopPropagation();
+		const arr = event.path;
+		let beer = arr.find(elm => elm.className == 'contentBlock').id;
+		//openBeer.style.display = 'block';
 	}
+	window.onclick = function(event) {
+  		if (event.target != modal) {
+   		modal.style.display = "none";
+ 	}
 }
-
-
-function createElements(type, prototypes) {
-	const element = $.createElement(type);
-	Object.keys(prototypes).forEach(key => element[key] = prototypes[key]);
-	Object.keys(prototypes).forEach(function (key) { return  element[key] = prototypes[key]});
-	return element;
-}
-
-function createBeer(data) {
-	const elements = [];
-	/*elements.push(createElements('div', {className: 'blockR'}));*/
-	elements.push(createElements('h1', {innerHTML: data['name']}));
-	elements.push(createElements('p', {innerHTML: data['description']}));
-	elements.push(createElements('p', {innerHTML: data['contribute_by']}));
-	elements.push(createElements('p', {innerHTML: data['brewers_tips']}));
-	elements.push(createElements('img', {src: data['img.url']}));
-
-	const frag = $.createDocumentFragment();
-	const blockWithBeer = $.createElement('div');
-	blockWithBeer.className = "countentBlock";
-	elements.forEach(elm => blockWithBeer.appendChild(elm));
-	return blockWithBeer;
-}
-
-
+})();

@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-	<script src="script.js"></script>
-	<script src="selectedBeer.js"></script>
-	<script src="searchBeer.js"></script>
+	<link rel="icon" href="images/beerIcon.png">
 	<title>beerSearch</title>
 </head>
 <body>
@@ -14,13 +12,12 @@
 		<div class="check" id="check"></div>
 
 		<div id="header">
-			<div>
-				<h1 id="title">beerSearch</h1>
-			</div>
-			<div>
+			<h1 id="title">beerSearch</h1>
+			<img src="images/beerIcon.png" alt="" id="iconInHeader">
+			<span id="navBar">
 				<a href="">HOME</a>
 				<a href="">FAVORITES</a>
-			</div>
+			</span>
 		</div>
 
 		<div id="search">
@@ -28,11 +25,21 @@
 			<input id="btnSearch" type="submit" value="Search"></input>
 		</div>
 
-		<div id="countent">
-			<div id="marginForCountent"></div>
+		<div id="contentWraper">
+			<div id="content"></div>
 		</div>
-
 	</div>
 	
-</body>
+	<div id="openBeer">
+		<div id="closeModal">
+			<span id="closeIco">&times;</span>
+		</div>
+		<div id="modalConent"></div>
+	</div>
+
+</body ff>
+	<script src="handlers.js"></script>
+	<script src="script.js"></script>
+	<script src="selectedBeer.js"></script>
+	<script src="searchBeer.js"></script>
 </html>
